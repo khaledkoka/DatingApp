@@ -33,6 +33,7 @@ namespace API
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -52,6 +53,9 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // Use Cors to solve API error, must be added between UseRouting and UseEndpoints
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200")); 
 
             app.UseAuthorization();
 
