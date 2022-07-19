@@ -55,7 +55,7 @@ namespace API
             app.UseRouting();
 
             // Use Cors to solve API error, must be added between UseRouting and UseEndpoints
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200")); 
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200")); 
 
             app.UseAuthorization();
 
