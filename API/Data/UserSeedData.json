@@ -13,7 +13,7 @@
     "Country": "Central African Republic",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/72.jpg",
+        "Url": "https://randomuser.me/api/portraits/women/72.jpg",
         "isMain": true
       }
     ]
@@ -32,7 +32,7 @@
     "Country": "Hong Kong",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/2.jpg",
+        "Url": "https://randomuser.me/api/portraits/women/2.jpg",
         "isMain": true
       }
     ]
@@ -51,7 +51,7 @@
     "Country": "Kenya",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/97.jpg",
+        "Url": "https://randomuser.me/api/portraits/women/97.jpg",
         "isMain": true
       }
     ]
@@ -70,7 +70,7 @@
     "Country": "Guinea-Bissau",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/70.jpg",
+        "Url": "https://randomuser.me/api/portraits/women/70.jpg",
         "isMain": true
       }
     ]
@@ -89,7 +89,7 @@
     "Country": "Cambodia",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/women/34.jpg",
+        "Url": "https://randomuser.me/api/portraits/women/34.jpg",
         "isMain": true
       }
     ]
@@ -108,7 +108,7 @@
     "Country": "Netherlands Antilles",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/26.jpg",
+        "Url": "https://randomuser.me/api/portraits/men/26.jpg",
         "isMain": true
       }
     ]
@@ -127,7 +127,7 @@
     "Country": "Aruba",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/80.jpg",
+        "Url": "https://randomuser.me/api/portraits/men/80.jpg",
         "isMain": true
       }
     ]
@@ -146,7 +146,7 @@
     "Country": "Martinique",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/92.jpg",
+        "Url": "https://randomuser.me/api/portraits/men/92.jpg",
         "isMain": true
       }
     ]
@@ -165,7 +165,7 @@
     "Country": "Tokelau",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/35.jpg",
+        "Url": "https://randomuser.me/api/portraits/men/35.jpg",
         "isMain": true
       }
     ]
@@ -184,7 +184,7 @@
     "Country": "Bahamas",
     "Photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/36.jpg",
+        "Url": "https://randomuser.me/api/portraits/men/36.jpg",
         "isMain": true
       }
     ]
