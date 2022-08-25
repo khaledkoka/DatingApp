@@ -17,7 +17,7 @@ export class MemberEditComponent implements OnInit {
   member: Member;
   user: User;
   @HostListener('window:beforeunload', ['$event']) unloadNotification($event: any) {
-    if(this.editForm.dirty){
+    if (this.editForm.dirty) {
       $event.returnValue = true;
     }
   }
@@ -39,9 +39,10 @@ export class MemberEditComponent implements OnInit {
   }
 
   updateMember() {
-    console.log(this.member);
-    this.toastr.success('Profile updated successfully');
-    // Reset the state of form after submit [to reset information/submit button status]
-    this.editForm.reset(this.member);
+    this.memberService.updateMember(this.member).subscribe(() => {
+      this.toastr.success('Profile updated successfully');
+      // Reset the state of form after submit [to reset information/submit button status]
+      this.editForm.reset(this.member);
+    })
   }
 }
