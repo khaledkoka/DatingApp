@@ -32,7 +32,7 @@ export class PhotoEditorComponent implements OnInit {
     this.hasBaseDropzoneOver = e;
   }
 
-  setMainPhoto(photo : Photo) {
+  setMainPhoto(photo: Photo) {
     this.memberService.setMainPhoto(photo.id).subscribe(() => {
       this.user.photoUrl = photo.url;
       this.accountService.setCurrentUser(this.user); // Update current user obseravble and also photo in localstorage
@@ -42,6 +42,13 @@ export class PhotoEditorComponent implements OnInit {
         if (p.id === photo.id) p.isMain = true;
       })
     })
+  }
+
+  deletePhoto(photoId: number) {
+    this.memberService.deletePhoto(photoId).subscribe(() => {
+      this.member.photos = this.member.photos.filter(x => x.id !== photoId);
+    })
+    // Remember, you don't need to handle any erros as the interceptors are taking care of them for us
   }
 
   initializeUploader() {
