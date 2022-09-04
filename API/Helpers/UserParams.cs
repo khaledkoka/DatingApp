@@ -25,6 +25,6 @@ namespace API.Helpers
         public int MaxAge { get; set; } = 150;
 
         // Sorting
-        public string OrderyBy { get; set; } = "lastActive";
+        public string OrderBy { get; set; } = "lastActive";
     }
 }
