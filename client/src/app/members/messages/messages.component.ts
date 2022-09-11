@@ -28,7 +28,7 @@ export class MessagesComponent implements OnInit {
     })
   }
 
-  pageChanges(event: any) {
+  pageChanged(event: any) {
     // Prevent infinite loading bug
     if (this.pageNumber !== event.page_) {
       this.pageNumber = event.page;
