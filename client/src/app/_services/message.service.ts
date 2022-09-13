@@ -25,5 +25,9 @@ export class MessageService {
   sendMessage(username: string, content: string) {
     return this.http.post<Message>(this.baseUrl + 'messages', { recipientUsername: username, content }); // no need to type content: content if value/key have same name
   }
+
+  deleteMessage(id: number) {
+    return this.http.delete(this.baseUrl + 'messages/' + id);
+  }
 }
 
