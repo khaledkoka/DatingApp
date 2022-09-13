@@ -22,7 +22,7 @@ namespace API
             try{
                 var context = services.GetRequiredService<DataContext>();
                 await context.Database.MigrateAsync();
-                await Seed.SeedUsers(context);
+                // await Seed.SeedUsers(context);
             }
             catch(Exception ex){
                 var logger = services.GetRequiredService<ILogger<Program>>();
