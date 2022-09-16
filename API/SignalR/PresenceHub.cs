@@ -19,20 +19,19 @@ namespace API.SignalR
 
         public override async Task OnConnectedAsync()
         {
-            await __tracker.UserConnected(Context.User.GetUsername(), Context.ConnectionId);
-            await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUsername());
+            var isOnline = await __tracker.UserConnected(Context.User.GetUsername(), Context.ConnectionId);
+            if (isOnline)
+                await Clients.Others.SendAsync("UserIsOnline", Context.User.GetUsername()); // Send to all the connected clients apart from the caller 
 
             var currentUsers = await __tracker.GetOnlineUsers();
-            await Clients.All.SendAsync("GetOnlineUsers", currentUsers);
+            await Clients.Caller.SendAsync("GetOnlineUsers", currentUsers); // Update to only those who has connected
         }
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
-            await __tracker.UserDisconnected(Context.User.GetUsername(), Context.ConnectionId);
-            await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUsername());
-
-            var currentUsers = await __tracker.GetOnlineUsers();
-            await Clients.All.SendAsync("GetOnlineUsers", currentUsers);
+            var isOffline = await __tracker.UserDisconnected(Context.User.GetUsername(), Context.ConnectionId);
+            if(isOffline)
+                await Clients.Others.SendAsync("UserIsOffline", Context.User.GetUsername()); // Notify other connected users that user is offline
 
             await base.OnDisconnectedAsync(exception);
         }
