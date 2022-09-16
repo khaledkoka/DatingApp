@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Message } from '../_models/message';
 import { User } from '../_models/user';
 import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
-
+import { take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +32,12 @@ export class MessageService {
     this.hubConnection.on('ReceiveMessageThread', messages => {
       this.messageThreadSource.next(messages);
     })
+
+    this.hubConnection.on('NewMessage', message => {
+      this.messageThread$.pipe(take(1)).subscribe(messages => {
+        this.messageThreadSource.next([...messages, message]);
+      })
+    })
   }
 
   stopHubConnection() {
@@ -50,8 +56,9 @@ export class MessageService {
     return this.http.get<Message[]>(this.baseUrl + 'messages/thread/' + username);
   }
 
-  sendMessage(username: string, content: string) {
-    return this.http.post<Message>(this.baseUrl + 'messages', { recipientUsername: username, content }); // no need to type content: content if value/key have same name
+  async sendMessage(username: string, content: string) {
+    return this.hubConnection.invoke('SendMessage', { recipientUsername: username, content })  // no need to type content: content if value/key have same name
+      .catch(error => console.log(error));
   }
 
   deleteMessage(id: number) {
