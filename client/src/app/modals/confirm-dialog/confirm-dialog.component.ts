@@ -12,7 +12,7 @@ export class ConfirmDialogComponent implements OnInit {
   btnOkText: string;
   btnCancelText: string;
   result: boolean;
-  constructor(private bsModalRef: BsModalService) { }
+  constructor(public bsModalRef: BsModalService) { }
 
   ngOnInit(): void {
   }
