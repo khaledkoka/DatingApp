@@ -101,11 +101,6 @@ namespace API.Data
             return _mapper.Map<IEnumerable<MessageDto>>(messages);
         }
 
-        public async Task<bool> SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0; // Return true or false
-        }
-
         public void AddGroup(Group group)
         {
             _context.Groups.Add(group);

@@ -72,12 +72,6 @@ namespace API.Data
             .ToListAsync();
         }
 
-        public async Task<bool> SaveAllAsync()
-        {
-            // Check if data has been saved in the database
-            return await _context.SaveChangesAsync() > 0;
-        }
-
         public void Update(AppUser user)
         {
             // Add a flag to the entity and set its state as modified
