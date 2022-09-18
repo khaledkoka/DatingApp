@@ -72,6 +72,10 @@ namespace API
             app.UseAuthentication();
             app.UseAuthorization();
 
+            // For publishing
+            app.UseDefaultFiles(); // If there's an index.html, it'll use that
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
